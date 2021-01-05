@@ -5,24 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Transiciones CSS</title>
     <style>
+        body{
+            background-color: black;
+            display: flex;
+            height: 100vh;
+            align-items: center;
+            justify-content: center;
+        }
         .pelota{
-            width: 100px;
-            height: 100px;
+            width: 200px;
+            height: 200px;
             border-radius: 50%;
-            background-color: red;
+            /* background-color: red; */
             /* transition-property: width, height;
             transition-duration: 2.5s;
             transition-delay: .5s;
             transition-timing-function: ease; */
-            transition:  2.5s ease;
+            transition:  1.5s;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
         }
-        .pelota:hover{
-            width: 200px;
-            height: 200px;
+        .pelota.a{
+            background-color: red;
+            left: 0;
+        }
+        .pelota.b{
+            background-color: blueviolet;
+            right: 0;
+        }
+        .canasta{
+            border: 1px solid black;
+            position: relative;
+            height: 100px;
+            width: 100%;
+        }
+        .canasta:hover .pelota.a{
+            left: calc(50% - 200px);
+        }
+        .canasta:hover .pelota.b{
+            right: calc(50% - 200px);
         }
     </style>
 </head>
 <body>
-    <div class="pelota"></div>
+    <div class="canasta">
+        <div class="pelota a">CALLATE</div>
+        <div class="pelota b">GAFA</div>
+    </div>
 </body>
 </html>
