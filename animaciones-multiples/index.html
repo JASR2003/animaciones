@@ -7,7 +7,7 @@
     <style>
         body{
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: center;
             height: 100vh;
             color: white;
@@ -31,7 +31,7 @@
             animation-duration: 3s, .3s;
             /* animation-delay: 1s; */
             /* animation-iteration-count: 10; */
-            animation-iteration-count: infinite;
+            animation-iteration-count: infinite, 20;
             /* animation-direction: reverse; */
             /* animation-fill-mode: forwards; */
             animation-direction: alternate;
@@ -49,6 +49,15 @@
             .container:hover .cuadrado{
                 animation-play-state: paused;
             }
+
+        @keyframes escalera {
+            from {
+            transform: translate(0);
+            }
+            to {
+                transform: translateY(500px);
+            }
+        }
 
         @keyframes cuadrado {
             0%{
@@ -76,9 +85,20 @@
 </head>
 <body>
     <div class="container">
-        <div class="cuadrado">
+        <div class="cuadrado" id="cuadrado">
             Hola Mundo!
         </div>
     </div>
+<script>
+    const $cuadrado = document.getElementById ("cuadrado");
+    // $cuadrado.addEventListener("nombre del evento", "que hago cuando el elemento ocurra");
+    $cuadrado.addEventListener("animationend", (event) => {
+        // console.log(event.animationName);
+        if (event.animationName === "rebote") {
+            $cuadrado.style.animationName = "cuadrado, escalera";
+            $cuadrado.style.animationDuration = "3s, 3s";
+        }
+    });
+</script>
 </body>
 </html>
