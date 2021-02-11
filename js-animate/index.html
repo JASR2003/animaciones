@@ -33,25 +33,26 @@
         const $pelota = document.getElementById("pelota");
 
         // element.animate (keyframes = [], option = {})
+
         $pelota.animate([
             // from
             {
-                transform: 'translateX(0)'
+                transform: "translateX(0)"
             },
             // to
             {
-                transform: 'translateX(500px)'
+                transform: "translateX(500px)"
             }
-        ],{
+        ], {
             duration: 1000,
             delay: 1000,
-            direction: 'normal',
-            easing: 'linear',
+            direction: "normal",
+            easing: "linear",
             interations: Infinity,
-            fill: 'forwards',
-            interationsStart: .5,
-            // endDelay: 5000, sirve para tiempo de espera entre animacion y animacion
-        })
+            fill: "forwards",
+            iterationStart: .5, // = 50%
+            // endDelay: 5000,
+        })      
     </script>
 </body>
 </html>
